@@ -1,7 +1,6 @@
-### MVVM + Clean Architecture while utilizing Gradle Version Catalogs
+# MVVM + Clean Architecture while utilizing Gradle Version Catalogs
 
-# Gradle version catalogs streamlines the dependencies while helping out with plugin managment
-# across modules within the project
+### Gradle version catalogs streamlines the dependencies while helping out with plugin managment across modules within the project
 
 ### Project Structure
 - Presentation Layer: 
