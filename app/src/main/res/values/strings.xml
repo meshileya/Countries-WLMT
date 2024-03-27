@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Countries-WLMT</string>
     <string name="search">Search</string>
+    <string name="no_data_currently_available">No data currently available</string>
 </resources>

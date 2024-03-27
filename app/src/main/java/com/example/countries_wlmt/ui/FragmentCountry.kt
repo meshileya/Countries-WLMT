@@ -38,10 +38,13 @@ class FragmentCountry : Fragment() {
         }
         binding.recyclerView.adapter = countryAdapter
 
-
-
         countryViewModel.countriesLiveData.observe(viewLifecycleOwner) { countries ->
             countryAdapter.updateList(countries)
+            if (countries.isNullOrEmpty()) {
+                binding.emptyStateTextView.show()
+            } else {
+                binding.emptyStateTextView.hide()
+            }
         }
 
         countryViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
