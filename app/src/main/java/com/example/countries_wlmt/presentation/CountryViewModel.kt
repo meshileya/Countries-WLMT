@@ -16,7 +16,7 @@ class CountryViewModel @Inject constructor(private val getCountriesUseCas: GetCo
     val countriesLiveData: LiveData<List<CountryItem>> = _countreisLiveData
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    val isLoading: LiveData<Boolean> get()  = _isLoading
 
     private val _exceptionMessage = MutableLiveData<String>()
     val exceptionMessage: LiveData<String> get() = _exceptionMessage
@@ -29,14 +29,16 @@ class CountryViewModel @Inject constructor(private val getCountriesUseCas: GetCo
         _isLoading.value = true
         viewModelScope.launch {
             try {
-                _isLoading.value = false
                 val countries = getCountriesUseCas.execute()
                 _countreisLiveData.value = countries
+                _isLoading.value = false
             } catch (ex: CountryFetchException) {
+                _countreisLiveData.value = emptyList()
                 _isLoading.value = false
                 _exceptionMessage.value = ex.message ?: "Something went wrong"
                 ex.printStackTrace()
             } catch (ex: Exception) {
+                _countreisLiveData.value = emptyList()
                 _isLoading.value = false
                 _exceptionMessage.value = ex.message ?: "Something went wrong"
                 ex.printStackTrace()
