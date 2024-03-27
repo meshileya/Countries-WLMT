@@ -15,6 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        signingConfig = signingConfigs.getByName("debug")
         buildConfigField(
             "String", "BASE_URL", "\"https://gist.githubusercontent.com/peymano-wmt/\""
         )
@@ -25,7 +26,21 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField(
+                "String", "BASE_URL", "\"https://gist.githubusercontent.com/peymano-wmt/\""
+            )
+            buildConfigField(
+                "int", "TIMEOUT_SECONDS", "10"
+            )
+        }
         release {
+            buildConfigField(
+                "String", "BASE_URL", "\"https://gist.githubusercontent.com/peymano-wmts/\""
+            )
+            buildConfigField(
+                "int", "TIMEOUT_SECONDS", "10"
+            )
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -63,6 +78,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     //DI
     implementation(libs.dagger.hilt.android)
+    implementation(libs.androidx.fragment.testing)
     kapt(libs.dagger.hilt.android.compiler)
     //Network
     implementation(libs.adapter.rxjava)
@@ -76,4 +92,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.androidx.core.testing)
 }
