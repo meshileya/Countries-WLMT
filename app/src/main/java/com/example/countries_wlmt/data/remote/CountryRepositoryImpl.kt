@@ -7,9 +7,9 @@ class CountryRepositoryImpl(private val countryService: CountryService) : Countr
         try {
             return countryService.getCountriesAsync()
         } catch (ex: Exception) {
-            ex.printStackTrace()
             throw CountryFetchException("Error fetching countries", ex)
         }
     }
 
+    //CountryFetchException
 }

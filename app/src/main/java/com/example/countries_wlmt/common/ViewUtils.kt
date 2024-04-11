@@ -3,6 +3,8 @@ package com.example.countries_wlmt.common
 import android.content.Context
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 
 /**
  * make view visible
@@ -25,3 +27,7 @@ fun View.hide(onlyInvisible: Boolean = false) {
 
 fun Context.toast(message: String, length: Int = Toast.LENGTH_LONG) =
     Toast.makeText(this, message, length).show()
+
+fun NavController.safeNavigate(direction: NavDirections) {
+    currentDestination?.getAction(direction.actionId)?.run { navigate(direction) }
+}
