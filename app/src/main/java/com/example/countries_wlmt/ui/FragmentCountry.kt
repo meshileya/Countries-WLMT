@@ -34,7 +34,7 @@ class FragmentCountry : Fragment() {
 
         DaggerAppComponent.create().inject(this)
         countryAdapter = CountryAdapter {
-            requireActivity().toast("Selected ${it.name ?: "NA"}")
+            requireActivity().toast("Selected ${it ?: "NA"}")
         }
         binding.recyclerView.adapter = countryAdapter
 

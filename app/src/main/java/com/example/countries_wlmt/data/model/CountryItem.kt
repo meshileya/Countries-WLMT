@@ -1,5 +1,7 @@
 package com.example.countries_wlmt.data.model
 
+
+
 data class CountryItem(
     val capital: String?,
     val code: String?,
@@ -7,6 +9,7 @@ data class CountryItem(
     val demonym: String?,
     val flag: String?,
     val language: Language?,
-    val name: String?,
+    val name: String,
     val region: String?
 )
+
