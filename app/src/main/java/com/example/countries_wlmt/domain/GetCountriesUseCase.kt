@@ -1,6 +1,6 @@
 package com.example.countries_wlmt.domain
 
-import com.example.countries_wlmt.data.repository.Result
+import com.example.countries_wlmt.domain.model.Result
 import com.example.countries_wlmt.domain.model.CountryUIItem
 
 interface GetCountriesUseCase {

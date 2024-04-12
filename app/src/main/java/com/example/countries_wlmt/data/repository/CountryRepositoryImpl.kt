@@ -2,6 +2,7 @@ package com.example.countries_wlmt.data.repository
 
 import com.example.countries_wlmt.data.model.CountryItem
 import com.example.countries_wlmt.data.repository.remote.CountryService
+import com.example.countries_wlmt.domain.model.Result
 import retrofit2.HttpException
 
 class CountryRepositoryImpl(private val countryService: CountryService) : CountryRepository {
