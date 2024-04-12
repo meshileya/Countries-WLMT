@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.countries_wlmt.data.remote.CountryFetchException
+import com.example.countries_wlmt.data.repository.Result
 import com.example.countries_wlmt.domain.GetCountriesUseCase
 import com.example.countries_wlmt.domain.model.CountryUIItem
 import kotlinx.coroutines.Job
@@ -32,22 +32,17 @@ class CountryViewModel @Inject constructor(private val getCountriesUseCas: GetCo
         _isLoading.value = true
         job?.cancel()
         job = viewModelScope.launch {
+            when (val result = getCountriesUseCas.execute()) {
+                is Result.Success -> {
+                    _countreisLiveData.value = result.data
+                    _isLoading.value = false
+                }
 
-            try {
-                val countries = getCountriesUseCas.execute()
-                _countreisLiveData.value = countries
-                _isLoading.value = false
-            } catch (ex: CountryFetchException) {
-                _countreisLiveData.value = emptyList()
-                _isLoading.value = false
-                _exceptionMessage.value = ex.message ?: "Something went wrong"
-                ex.printStackTrace()
-            } catch (ex: Exception) {
-                _countreisLiveData.value = emptyList()
-                _isLoading.value = false
-                _exceptionMessage.value = ex.message ?: "Something went wrong"
-                ex.printStackTrace()
+                is Result.Error -> {
+                    _exceptionMessage.value = result.message ?: "Something went wrong"
+                }
             }
+            _isLoading.value = false
 
         }
 

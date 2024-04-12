@@ -1,33 +1,36 @@
 package com.example.countries_wlmt.domain
 
-import com.example.countries_wlmt.data.remote.CountryFetchException
-import com.example.countries_wlmt.data.remote.CountryRepository
+import com.example.countries_wlmt.data.repository.CountryRepository
+import com.example.countries_wlmt.data.repository.Result
 import com.example.countries_wlmt.domain.model.CountryUIItem
 
 class GetCountriesUseCaseImpl(private val countryRepository: CountryRepository) :
     GetCountriesUseCase {
-    override suspend fun execute(): List<CountryUIItem> {
+    override suspend fun execute(): Result<List<CountryUIItem>> {
         try {
-            val countries = countryRepository.getCountries().sortedBy { it.name }
+            when (val result = countryRepository.getCountries()) {
+                is Result.Success -> {
+                    val listItems = mutableListOf<CountryUIItem>()
+                    var currentLetter: Char? = null
 
-            val listItems = mutableListOf<CountryUIItem>()
-            var currentLetter: Char? = null
+                    result.data.sortedBy { it.name }.forEach {
+                        val countryChar = it.name.first()
+                        if (currentLetter == null || countryChar != currentLetter) {
+                            listItems.add(CountryUIItem.HeaderUI("$countryChar"))
+                            currentLetter = countryChar
+                        }
+                        listItems.add(CountryUIItem.CountryUI(it))
 
-            countries.forEach {
-                val countryChar = it.name.first()
-                if (currentLetter == null || countryChar != currentLetter) {
-                    listItems.add(CountryUIItem.HeaderUI("${countryChar}"))
-                    currentLetter = countryChar
+                    }
+                    return Result.Success(listItems)
                 }
-                listItems.add(CountryUIItem.CountryUI(it))
-            }
 
-            return listItems
-        } catch (ex: CountryFetchException) {
-            ex.printStackTrace()
-            throw CountryFetchException(ex.message ?: "Failed to execute countryUseCaseImp", ex)
+                is Result.Error -> {
+                    return result
+                }
+            }
         } catch (ex: Exception) {
-            throw CountryFetchException("Failed to execute countryUseCaseImp", ex)
+            return Result.Error(-99, ex.message ?: "Failed to execute countryUseCaseImp")
         }
     }
 

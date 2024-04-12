@@ -1,9 +1,9 @@
 package com.example.countries_wlmt.di
 
 import com.example.countries_wlmt.BuildConfig
-import com.example.countries_wlmt.data.remote.CountryRepository
-import com.example.countries_wlmt.data.remote.CountryRepositoryImpl
-import com.example.countries_wlmt.data.remote.CountryService
+import com.example.countries_wlmt.data.repository.CountryRepository
+import com.example.countries_wlmt.data.repository.CountryRepositoryImpl
+import com.example.countries_wlmt.data.repository.remote.CountryService
 import com.example.countries_wlmt.domain.GetCountriesUseCase
 import com.example.countries_wlmt.domain.GetCountriesUseCaseImpl
 import com.example.countries_wlmt.presentation.CountryViewModel
