@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.countries_wlmt.data.repository.Result
 import com.example.countries_wlmt.domain.GetCountriesUseCase
 import com.example.countries_wlmt.domain.model.CountryUIItem
+import com.example.countries_wlmt.domain.model.Result
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,8 +1,8 @@
 package com.example.countries_wlmt.domain
 
 import com.example.countries_wlmt.data.repository.CountryRepository
-import com.example.countries_wlmt.data.repository.Result
 import com.example.countries_wlmt.domain.model.CountryUIItem
+import com.example.countries_wlmt.domain.model.Result
 
 class GetCountriesUseCaseImpl(private val countryRepository: CountryRepository) :
     GetCountriesUseCase {
