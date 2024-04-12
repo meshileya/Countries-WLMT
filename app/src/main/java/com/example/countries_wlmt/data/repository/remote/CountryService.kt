@@ -1,4 +1,4 @@
-package com.example.countries_wlmt.data.remote
+package com.example.countries_wlmt.data.repository.remote
 
 import com.example.countries_wlmt.data.model.CountryItem
 import retrofit2.http.GET

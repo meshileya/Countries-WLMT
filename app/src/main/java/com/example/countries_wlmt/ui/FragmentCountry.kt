@@ -11,10 +11,11 @@ import com.example.countries_wlmt.common.hide
 import com.example.countries_wlmt.common.show
 import com.example.countries_wlmt.common.toast
 import com.example.countries_wlmt.databinding.FragmentCountryBinding
-import com.example.countries_wlmt.di.DaggerAppComponent
 import com.example.countries_wlmt.presentation.CountryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class FragmentCountry : Fragment() {
 
     @Inject
@@ -32,7 +33,6 @@ class FragmentCountry : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        DaggerAppComponent.create().inject(this)
         countryAdapter = CountryAdapter {
             requireActivity().toast("Selected ${it ?: "NA"}")
         }
