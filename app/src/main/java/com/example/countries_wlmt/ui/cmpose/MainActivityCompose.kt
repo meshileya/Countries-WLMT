@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -25,8 +25,10 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.countries_wlmt.domain.model.CountryUIItem
 import com.example.countries_wlmt.presentation.CountryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivityCompose : ComponentActivity() {
     @Inject
     lateinit var countryViewModel: CountryViewModel
@@ -63,19 +65,7 @@ class MainActivityCompose : ComponentActivity() {
                     )
                 }
             }
-
-//            NavHost(navController = navController, startDestination = "countryList") {
-//                composable("countryList") {
-//                    CountryListScreen(countries = countries, query = query, onQueryChange = {
-//
-//                    }, onCountryClick = { country ->
-//                        navController.navigate("countryDetail/${country}")
-//                    },
-//                        composable()) {
-//
-//                    }
-//                }
-//            }
+            countryViewModel.getCountries()
         }
     }
 }
@@ -130,7 +120,7 @@ fun SearchBar(
         onValueChange = onQueryChange,
         label = { Text("Search") },
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(16.dp)
     )
 }
