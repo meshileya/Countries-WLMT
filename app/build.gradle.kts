@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinParcelize)
     alias(libs.plugins.navigation.safeargs.kotlin)
     alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -60,7 +61,12 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding = true
+        compose = true
     }
+
+//    composeOptions {
+//        kotlinCompilerExtensionVersion = "1.3.2" // Optional: Suppress version compatibility check
+//    }
 
     dataBinding {
         addKtx = true
@@ -74,8 +80,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.swiperefreshlayout)
     //UI [compose]
+    implementation(libs.androidx.ui.v100)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlin.stdlib)
-    implementation(libs.androidx.ui)
+//    implementation(libs.androidx.ui)
     implementation(libs.androidx.material)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -90,6 +98,7 @@ dependencies {
     //DI
     implementation(libs.dagger.hilt.android)
     implementation(libs.androidx.fragment.testing)
+    implementation(libs.androidx.runtime.livedata)
     kapt(libs.dagger.hilt.android.compiler)
     //Network
     implementation(libs.adapter.rxjava)
@@ -103,6 +112,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    testImplementation (libs.kotlinx.coroutines.test)
-    testImplementation (libs.androidx.core.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.core.testing)
 }

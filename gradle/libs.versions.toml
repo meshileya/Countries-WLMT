@@ -1,16 +1,16 @@
 [versions]
-activityCompose = "1.9.0"
+activityCompose = "1.7.20"
 adapterRxjava = "2.1.0"
 agp = "8.3.2"
 converterScalars = "2.11.0"
 coreTesting = "2.2.0"
-kotlin = "1.9.23"
+kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
-kotlinStdlib = "1.9.23"
+kotlinStdlib = "2.0.0"
 kotlinxCoroutinesTest = "1.7.1"
 lifecycleViewmodelCompose = "2.8.3"
 material = "1.12.0"
@@ -25,7 +25,9 @@ retrofit2KotlinCoroutinesAdapter = "0.9.2"
 navigationFragment = "2.7.7"
 swiperefreshlayout = "1.1.0"
 fragmentTesting = "1.8.1"
+ui = "1.0.0"
 uiToolingPreview = "1.6.8"
+runtimeLivedata = "1.6.8"
 
 [libraries]
 
@@ -34,8 +36,10 @@ androidx-core-testing = { module = "androidx.arch.core:core-testing", version.re
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationFragment" }
 androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "uiToolingPreview" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
+androidx-ui-v100 = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -62,6 +66,7 @@ androidx-navigation-fragment = { group = "androidx.navigation", name = "navigati
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragment" }
 androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 androidx-fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragmentTesting" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -71,4 +76,4 @@ navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navi
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragment" }
 #DI
 daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
-
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

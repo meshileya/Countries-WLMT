@@ -47,4 +47,21 @@ class CountryViewModel @Inject constructor(private val getCountriesUseCas: GetCo
         }
 
     }
+
+    fun searchCountries(query: String) {
+        if (query.isEmpty()) {
+            _countreisLiveData.value = countriesLiveData.value
+        } else {
+            _countreisLiveData.value = countriesLiveData.value?.filter { item ->
+                when (item) {
+                    is CountryUIItem.CountryUI -> item.countryItem.name.equals(
+                        query,
+                        ignoreCase = true
+                    )
+
+                    else -> false
+                }
+            }
+        }
+    }
 }
