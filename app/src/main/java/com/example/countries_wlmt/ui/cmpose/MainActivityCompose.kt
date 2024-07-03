@@ -50,8 +50,16 @@ class MainActivityCompose : ComponentActivity() {
                             query = it
                             countryViewModel.searchCountries(it)
                         },
-                        onCountryClick = { country ->
-                            navController.navigate("countryDetail/${country}")
+                        onCountryClick = { item ->
+                            when (item) {
+                                is CountryUIItem.CountryUI -> {
+                                    navController.navigate("countryDetail/${item.countryItem.name}")
+                                }
+
+                                is CountryUIItem.HeaderUI -> {
+
+                                }
+                            }
                         }
                     )
                 }
