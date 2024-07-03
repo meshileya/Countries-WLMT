@@ -10,6 +10,7 @@ data class CountryItem(
     val flag: String?,
     val language: Language?,
     val name: String,
+    val malu: String,
     val region: String?
 )
 
