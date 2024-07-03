@@ -80,10 +80,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.swiperefreshlayout)
     //UI [compose]
-    implementation(libs.androidx.ui.v100)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlin.stdlib)
-//    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui)
     implementation(libs.androidx.material)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.lifecycle.runtime.ktx)
