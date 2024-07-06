@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/fragmentCountry"
-        android:name="com.example.countries_wlmt.ui.FragmentCountry"
+        android:name="com.example.countries_wlmt.presentation.ui.FragmentCountry"
         android:label="Countries" />
 </navigation>

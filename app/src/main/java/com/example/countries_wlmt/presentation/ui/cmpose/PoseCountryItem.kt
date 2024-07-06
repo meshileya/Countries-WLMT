@@ -1,4 +1,4 @@
-package com.example.countries_wlmt.ui.cmpose
+package com.example.countries_wlmt.presentation.ui.cmpose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth

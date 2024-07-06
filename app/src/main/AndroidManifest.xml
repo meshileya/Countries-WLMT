@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CountriesWLMT"
         tools:targetApi="31">
         <activity
-            android:name=".ui.cmpose.MainActivityCompose"
+            android:name=".presentation.ui.cmpose.MainActivityCompose"
             android:configChanges="screenLayout|orientation|screenSize"
             android:exported="true">
             <intent-filter>

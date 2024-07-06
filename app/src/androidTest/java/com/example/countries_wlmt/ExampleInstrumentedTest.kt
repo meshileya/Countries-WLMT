@@ -13,8 +13,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.example.countries_wlmt.ui.FragmentCountry
-import com.example.countries_wlmt.ui.MainActivity
+import com.example.countries_wlmt.presentation.ui.FragmentCountry
+import com.example.countries_wlmt.presentation.ui.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule

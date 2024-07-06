@@ -1,4 +1,4 @@
-package com.example.countries_wlmt.ui
+package com.example.countries_wlmt.presentation.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

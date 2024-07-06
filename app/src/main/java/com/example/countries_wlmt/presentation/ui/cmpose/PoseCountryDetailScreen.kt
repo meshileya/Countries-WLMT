@@ -1,4 +1,4 @@
-package com.example.countries_wlmt.ui.cmpose
+package com.example.countries_wlmt.presentation.ui.cmpose
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

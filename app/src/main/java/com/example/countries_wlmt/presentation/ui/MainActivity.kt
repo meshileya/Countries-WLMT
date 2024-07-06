@@ -1,4 +1,4 @@
-package com.example.countries_wlmt.ui
+package com.example.countries_wlmt.presentation.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
